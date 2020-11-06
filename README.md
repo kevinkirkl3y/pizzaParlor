@@ -1,6 +1,6 @@
-# 
+# Big Kev's Pie Place
 
-#### Object and Method Practice for Epicodus
+#### Object and Method Practice for Epicodus 11.6.2020
 
 #### by _**Kevin Kirkley**_
 
@@ -11,6 +11,8 @@
 
 | Describe: numBumble() | Input | Output |
 | :-----------------------------------| :------------- | :------------- |
+| object:Pizza() | | |
+| Object: Pizza containing parameters; Size, Sauce, Toppings, Running Price| newPizza = new Pizza(Large, Pesto, Chicken, 20) | newPizza {"large", "pesto", "chicken", 20} |
 
 
 
