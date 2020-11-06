@@ -19,15 +19,28 @@ Pizza.prototype.pizzaSizePrice = function(sizes) {
 
 Pizza.prototype.pizzaToppingsPrice = function(toppings) {
   this.pizzaToppingsPrice = 0;
-  
+
 }
 
+function checkToppings(){
+  $("input[name:'toppings']").change(function(){
+    //let userToppings = $(this).val();
+    if ($(this).is(':checked')){
+      let checked = $(this).val();
+      tmp.push(checked);
+    }else{
+      tmp.splice($.inArray(checked, tmp),1);
+    }
+  });
+  console.log(tmp)
+  console.log(newPizza);
+}
 function checkPriceBtnListener(){
+  let tmp = [];
   $("button#checkPrice").on("click", function(){
     let sizes = $("select#pizzaSize").val();
-    let newPizza = new Pizza(sizes)
-    newPizza.pizzaSizePrice(sizes)
-    console.log(newPizza);
+    let newPizza = new Pizza(sizes);
+    newPizza.pizzaSizePrice(sizes);
   })
 };
 
