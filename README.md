@@ -9,10 +9,12 @@
 
 ## Specifications
 
-| Describe: numBumble() | Input | Output |
+| Describe: | Input | Output |
 | :-----------------------------------| :------------- | :------------- |
 | object:Pizza() | | |
 | Object: Pizza containing parameters; Size, Sauce, Toppings, Running Price| newPizza = new Pizza(Large, Pesto, Chicken, 20) | newPizza {"large", "pesto", "chicken", 20} |
+|Changed Object: Pizza for simplicity | | |
+| Object: Pizza containing parameters : sizes, toppings | newPizza = new Pizza("large", "pepperoni") | newPizza{"large", "pepperoni"} |
 
 
 
