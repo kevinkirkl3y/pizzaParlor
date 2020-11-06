@@ -20,7 +20,7 @@
 | Method: pizzaSizePrice() | | | 
 | Takes size information and calculates a price | newPizza.pizzaPrice("large") | price = $15 |
 | Method: pizzaToppingsPrice() | | | 
-| Takes topping inputs and calculates price based upon number of toppings| pizzaToppingsPrice("peperoni")) | toppingsPrice = 1; |
+| Takes topping inputs and calculates price based upon number of toppings| {"cheese","pepperoni"}" | pizzaToppingPrice = 2 | 
 | Method: checkToppings() | | |
 | Takes user input from checkboxes and places them into array. | User Selects: Cheese, Pepperoni | checkToppings  {"Cheese","Pepperoni}
 
