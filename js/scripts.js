@@ -17,6 +17,11 @@ Pizza.prototype.pizzaSizePrice = function(sizes) {
    }
 };
 
+Pizza.prototype.pizzaToppingsPrice = function(toppings) {
+  this.pizzaToppingsPrice = 0;
+  
+}
+
 function checkPriceBtnListener(){
   $("button#checkPrice").on("click", function(){
     let sizes = $("select#pizzaSize").val();
@@ -24,12 +29,12 @@ function checkPriceBtnListener(){
     newPizza.pizzaSizePrice(sizes)
     console.log(newPizza);
   })
-}
+};
 
 
 $(document).ready(function(){
   checkPriceBtnListener();
-})
+});
 
 
 

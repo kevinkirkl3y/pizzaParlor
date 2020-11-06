@@ -15,9 +15,13 @@
 | Object: Pizza containing parameters; Size, Sauce, Toppings, Running Price| newPizza = new Pizza(Large, Pesto, Chicken, 20) | newPizza {"large", "pesto", "chicken", 20} |
 |Changed Object: Pizza for simplicity | | |
 | Object: Pizza containing parameters : sizes, toppings | newPizza = new Pizza("large", "pepperoni") | newPizza{"large", "pepperoni"} |
-| Method; pizzaPrice() | | |
-| Takes size information and calculates a price | newPizza.pizzaPrice("large") | price = $15 |
+| Method: pizzaTotalPrice() | | |
 |Broke down size and topping pricing into two different methods | | |
+| Method: pizzaSizePrice() | | | 
+| Takes size information and calculates a price | newPizza.pizzaPrice("large") | price = $15 |
+| Method: pizzaToppingsPrice() | | | 
+| Takes topping inputs and calculates price based upon number of toppings| pizzaToppingsPrice("peperoni")) | toppingsPrice = 1; |
+
 
 
 

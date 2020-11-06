@@ -35,3 +35,9 @@ Pizza.prototype.pizzaSizePrice = function(sizes) {
 //Expect: result.toEqual(10)
 //code let newPizza4 = new Pizza("jibberish")
 //Expect: result.toEqual(10)
+
+Pizza.prototype.pizzaToppingsPrice = function(toppings) {
+  this.toppingsPrice = 0;
+  for (Pizza.toppings)
+
+}
