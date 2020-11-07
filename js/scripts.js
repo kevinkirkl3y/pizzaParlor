@@ -2,7 +2,14 @@ function Pizza(sizes, toppings) {
   this.sizes = sizes;
   this.toppings = toppings;
 };
-//removed sauces and prices parameters to keep it more simple to start
+
+Pizza.prototype.checkToppings= function(toppings){
+  this.toppings = [];
+  this.chosenToppings = $("input:checkbox[name= toppings]:checked").map(function(){
+    return $(this).val();
+  }).get();
+  this.toppings.push(this.chosenToppings);
+};
 
 Pizza.prototype.pizzaSizePrice = function(sizes) {
   this.sizes = $("select#pizzaSize").val();
@@ -17,21 +24,27 @@ Pizza.prototype.pizzaSizePrice = function(sizes) {
     alert("Please choose a size.")
   }
 };
-// I want to add 1 for every element within the toppings array. Trying to figure out which loop to use. 
+
 Pizza.prototype.pizzaToppingsPrice = function(toppings) {
   this.pizzaToppingsPrice = 0;
-  toppings.forEach(function(element))
-    this.pizzaToppingsPrice +=1;
+  let numOfToppings = this.chosenToppings.length;
+  if (this.sizes === "large"){
+    this.pizzaToppingsPrice+= numOfToppings*3;
+  }else if (this.sizes === "medium"){
+    this.pizzaToppingsPrice+= numOfToppings*2;
+  }else if (this.sizes === "small") {
+    this.pizzaToppingsPrice+= numOfToppings*1;
   }
-  
-}
-Pizza.prototype.checkToppings= function(toppings){
-  this.toppings = [];
-  let checkedBoxes = $("input:checkbox[name= toppings]:checked").map(function(){
-    return $(this).val();
-  }).get();
-  this.toppings.push(checkedBoxes);
 };
+  
+Pizza.prototype.totalPrice = function(){
+  this.totalPrice = this.sizePrice + this.pizzaToppingsPrice;
+}
+
+Pizza.prototype.displayPizzaOrder = function(){
+  const newPizza = 
+  $("div#order-confirmation").fadeIn();
+}
 
 
 function checkPriceBtnListener(){
@@ -40,7 +53,9 @@ function checkPriceBtnListener(){
     newPizza.checkToppings();
     newPizza.pizzaSizePrice();
     newPizza.pizzaToppingsPrice();
-    console.log(newPizza)
+    newPizza.totalPrice();
+    newPizza.displayPizzaOrder();
+    
   })
 };
 

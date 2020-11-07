@@ -19,10 +19,13 @@
 |Broke down size and topping pricing into two different methods | | |
 | Method: pizzaSizePrice() | | | 
 | Takes size information and calculates a price | newPizza.pizzaPrice("large") | price = $15 |
-| Method: pizzaToppingsPrice() | | | 
-| Takes topping inputs and calculates price based upon number of toppings| {"cheese","pepperoni"}" | pizzaToppingPrice = 2 | 
 | Method: checkToppings() | | |
 | Takes user input from checkboxes and places them into array. | User Selects: Cheese, Pepperoni | checkToppings  {"Cheese","Pepperoni}
+| Method: pizzaToppingsPrice() | | | 
+| Takes topping inputs and calculates price based upon number of toppings and size of pizza| {"cheese","pepperoni"}" | pizzaToppingPrice = 2 | 
+| Method: totalPrice() | | |
+| This price adds the sizePrice and pizzaToppingPrice together | newPizza{Large, [pepperoni, cheese]} (15+6) | 21 |
+
 
 
 
