@@ -14,11 +14,11 @@ Pizza.prototype.checkToppings= function(toppings){
 Pizza.prototype.pizzaSizePrice = function(sizes) {
   this.sizes = $("select#pizzaSize").val();
   this.sizePrice = 0;
-  if (this.sizes === "large"){
+  if (this.sizes === "Large"){
     this.sizePrice += 15;
-  }else if (this.sizes === "medium"){
+  }else if (this.sizes === "Medium"){
     this.sizePrice += 13;
-  }else if (this.sizes === "small") {
+  }else if (this.sizes === "Small") {
     this.sizePrice += 10;
   }else {
     alert("Please choose a size.")
@@ -28,23 +28,18 @@ Pizza.prototype.pizzaSizePrice = function(sizes) {
 Pizza.prototype.pizzaToppingsPrice = function(toppings) {
   this.pizzaToppingsPrice = 0;
   let numOfToppings = this.chosenToppings.length;
-  if (this.sizes === "large"){
+  if (this.sizes === "Large"){
     this.pizzaToppingsPrice+= numOfToppings*3;
-  }else if (this.sizes === "medium"){
+  }else if (this.sizes === "Medium"){
     this.pizzaToppingsPrice+= numOfToppings*2;
-  }else if (this.sizes === "small") {
+  }else if (this.sizes === "Small") {
     this.pizzaToppingsPrice+= numOfToppings*1;
   }
 };
   
 Pizza.prototype.totalPrice = function(){
   this.totalPrice = this.sizePrice + this.pizzaToppingsPrice;
-}
-
-Pizza.prototype.displayPizzaOrder = function(){
-  const newPizza = 
-  $("div#order-confirmation").fadeIn();
-}
+};
 
 
 function checkPriceBtnListener(){
@@ -54,14 +49,17 @@ function checkPriceBtnListener(){
     newPizza.pizzaSizePrice();
     newPizza.pizzaToppingsPrice();
     newPizza.totalPrice();
-    newPizza.displayPizzaOrder();
-    
-  })
+    $("div#order-confirmation").fadeIn();
+    $(".size").html(newPizza.sizes);
+    $(".toppings").html(newPizza.chosenToppings);
+    $(".total").html(newPizza.totalPrice);
+  });
 };
 
 
-$(document).ready(function(){
+$(document).ready(function(event){
   checkPriceBtnListener();
+  event.preventDefault();
 });
 
 
