@@ -69,6 +69,7 @@ _Contact Kevin Kirkley at [kevinmkirkley@gmail.com](mailto:kevinmkirkley@gmail.c
 * _JQuery_
 * _JavaScript_
 * _VSCode_
+* _Google Fonts_
 
 ### License
 

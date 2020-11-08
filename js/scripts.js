@@ -1,3 +1,4 @@
+//Business Logic
 function Pizza(sizes, toppings) {
   this.sizes = sizes;
   this.toppings = toppings;
@@ -41,9 +42,8 @@ Pizza.prototype.totalPrice = function(){
   this.totalPrice = this.sizePrice + this.pizzaToppingsPrice;
 };
 
-function showOrder
 
-
+//UI Logic
 
 function checkPriceBtnListener(){
   $("button#checkPrice").on("click", function(){
@@ -62,7 +62,6 @@ function checkPriceBtnListener(){
 
 $(document).ready(function(){
   checkPriceBtnListener();
-
 });
 
 

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
   <script src="js/jquery-3.5.1.js"></script>
   <script src="js/scripts.js"></script>
   <title>Big Kev's Pie Parlor</title>
@@ -12,13 +13,15 @@
 <body>
   <h1 class="jumbotron text-center">Big Kev's Pie Parlor</h1>
   <div class="container">
-    <h2>Size:</h2>
+    <div class="card" id="orderPrompt">
+      <h2>Size:</h2>
       <select class="form-control" id="pizzaSize">
         <option value="empty"></option>
         <option value="Large">Large</option>
         <option value="Medium">Medium</option>
         <option value="Small">Small</option>
       </select>
+      <h2>Toppings:</h2>
       <div class="container form-group" id="toppings-list">
         <input type="checkbox" name="toppings"  value="Cheese">Cheese<br>
         <input type="checkbox" name="toppings"  value="Pepperoni">Pepperoni<br>
@@ -31,10 +34,11 @@
         <input type="checkbox" name="toppings"  value="Tomato">Tomato<br>
         <input type="checkbox" name="toppings"  value="Garlic">Garlic<br>
       </div>
-    <button type="button" class="btn btn-danger" id="checkPrice">Check Price</button>
+      <button type="button" class="btn btn-danger" id="checkPrice">Check Price</button>
+    </div>
   </div>
   <div class="container" id="order-confirmation">
-    <div class="card">
+    <div class="card" id="orderConf">
       <div class="card-title">
       <h3>Your Order:</h3>
         <div class="card-body" id="pizza-order">
@@ -47,6 +51,5 @@
       </div>
     </div>
   </div>
-  
 </body>
 </html>
