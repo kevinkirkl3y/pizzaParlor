@@ -41,6 +41,9 @@ Pizza.prototype.totalPrice = function(){
   this.totalPrice = this.sizePrice + this.pizzaToppingsPrice;
 };
 
+function showOrder
+
+
 
 function checkPriceBtnListener(){
   $("button#checkPrice").on("click", function(){
@@ -51,15 +54,15 @@ function checkPriceBtnListener(){
     newPizza.totalPrice();
     $("div#order-confirmation").fadeIn();
     $(".size").html(newPizza.sizes);
-    $(".toppings").html(newPizza.chosenToppings);
+    $(".toppings").html(newPizza.chosenToppings.join(", "));
     $(".total").html(newPizza.totalPrice);
   });
 };
 
 
-$(document).ready(function(event){
+$(document).ready(function(){
   checkPriceBtnListener();
-  event.preventDefault();
+
 });
 
 
