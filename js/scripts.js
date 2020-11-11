@@ -4,16 +4,8 @@ function Pizza(sizes, toppings) {
   this.toppings = toppings;
 };
 
-Pizza.prototype.checkToppings= function(toppings){
-  this.toppings = [];
-  this.chosenToppings = $("input:checkbox[name= toppings]:checked").map(function(){
-    return $(this).val();
-  }).get();
-  this.toppings.push(this.chosenToppings);
-};
-
 Pizza.prototype.pizzaSizePrice = function(sizes) {
-  this.sizes = $("select#pizzaSize").val();
+  this.sizes = sizes;
   this.sizePrice = 0;
   if (this.sizes === "Large"){
     this.sizePrice += 15;
@@ -26,42 +18,42 @@ Pizza.prototype.pizzaSizePrice = function(sizes) {
   }
 };
 
-Pizza.prototype.pizzaToppingsPrice = function(toppings) {
-  this.pizzaToppingsPrice = 0;
-  let numOfToppings = this.chosenToppings.length;
-  if (this.sizes === "Large"){
-    this.pizzaToppingsPrice+= numOfToppings*3;
-  }else if (this.sizes === "Medium"){
-    this.pizzaToppingsPrice+= numOfToppings*2;
-  }else if (this.sizes === "Small") {
-    this.pizzaToppingsPrice+= numOfToppings*1;
+Pizza.prototype.toppingsPrice = function(sizes, toppings) {
+  this.toppingsPrice = 0;
+  let numOfToppings = toppings.length;
+  if (sizes === "Large"){
+    this.toppingsPrice+= numOfToppings*3;
+  }else if (sizes === "Medium"){
+    this.toppingsPrice+= numOfToppings*2;
+  }else if (sizes === "Small") {
+    this.toppingsPrice+= numOfToppings*1;
   }
 };
   
 Pizza.prototype.totalPrice = function(){
-  this.totalPrice = this.sizePrice + this.pizzaToppingsPrice;
+  this.totalPrice = this.sizePrice + this.toppingsPrice;
 };
 
 
 //UI Logic
 
-function checkPriceBtnListener(){
-  $("button#checkPrice").on("click", function(){
-    let newPizza = new Pizza();
-    newPizza.checkToppings();
-    newPizza.pizzaSizePrice();
-    newPizza.pizzaToppingsPrice();
-    newPizza.totalPrice();
-    $("div#order-confirmation").fadeIn();
-    $(".size").html(newPizza.sizes);
-    $(".toppings").html(newPizza.chosenToppings.join(", "));
-    $(".total").html(newPizza.totalPrice);
-  });
-};
+
 
 
 $(document).ready(function(){
-  checkPriceBtnListener();
+  $("button#checkPrice").on("click", function(){
+    let sizes = $("select#pizzaSize").val();
+    let toppings = $("input:checkbox[name= toppings]:checked").map(function(){return $(this).val();}).get();
+    let newPizza = new Pizza(sizes, toppings);
+    newPizza.pizzaSizePrice(sizes);
+    newPizza.toppingsPrice(sizes, toppings);
+    newPizza.totalPrice();
+    $("div#order-confirmation").fadeIn();
+    $(".size").html(newPizza.sizes);
+    $(".toppings").html(newPizza.toppings.join(", "));
+    $(".total").html(newPizza.totalPrice);
+    console.log(newPizza);
+  });
 });
 
 
