@@ -4,8 +4,7 @@ function Pizza(sizes, toppings) {
   this.toppings = toppings;
 };
 
-Pizza.prototype.pizzaSizePrice = function(sizes) {
-  this.sizes = sizes;
+Pizza.prototype.pizzaSizePrice = function() {
   this.sizePrice = 0;
   if (this.sizes === "Large"){
     this.sizePrice += 15;
@@ -18,14 +17,14 @@ Pizza.prototype.pizzaSizePrice = function(sizes) {
   }
 };
 
-Pizza.prototype.toppingsPrice = function(sizes, toppings) {
+Pizza.prototype.toppingsPrice = function() {
   this.toppingsPrice = 0;
-  let numOfToppings = toppings.length;
-  if (sizes === "Large"){
+  let numOfToppings = this.toppings.length;
+  if (this.sizes === "Large"){
     this.toppingsPrice+= numOfToppings*3;
-  }else if (sizes === "Medium"){
+  }else if (this.sizes === "Medium"){
     this.toppingsPrice+= numOfToppings*2;
-  }else if (sizes === "Small") {
+  }else if (this.sizes === "Small") {
     this.toppingsPrice+= numOfToppings*1;
   }
 };
@@ -38,21 +37,18 @@ Pizza.prototype.totalPrice = function(){
 //UI Logic
 
 
-
-
 $(document).ready(function(){
   $("button#checkPrice").on("click", function(){
     let sizes = $("select#pizzaSize").val();
     let toppings = $("input:checkbox[name= toppings]:checked").map(function(){return $(this).val();}).get();
     let newPizza = new Pizza(sizes, toppings);
-    newPizza.pizzaSizePrice(sizes);
-    newPizza.toppingsPrice(sizes, toppings);
+    newPizza.pizzaSizePrice();
+    newPizza.toppingsPrice();
     newPizza.totalPrice();
     $("div#order-confirmation").fadeIn();
-    $(".size").html(newPizza.sizes);
-    $(".toppings").html(newPizza.toppings.join(", "));
+    $(".size").html(sizes);
+    $(".toppings").html(toppings.join(", "));
     $(".total").html(newPizza.totalPrice);
-    console.log(newPizza);
   });
 });
 
